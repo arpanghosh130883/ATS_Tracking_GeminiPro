@@ -1,0 +1,14 @@
+streamlit
+google-generativeai
+python-dotenv
+langchain
+PyPDF2
+chromadb
+faiss-cpu
+langchain_google_genai
+#pdf2image ''' for ATS project only. it has dependencies on poppler windows which is required to see all the elements in PDF.
+# Download the poppler windows from https://github.com/oschwartz10612/poppler-windows/releases/tag/v23.11.0-0 and 
+# extract it, go to C drive program files and create a poppler folder and paste the files
+# add then library/bin folder, copy the entire path and paste to the PATH environmentvariable.
+
+
