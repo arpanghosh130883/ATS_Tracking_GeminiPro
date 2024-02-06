@@ -114,7 +114,7 @@ testmisc.py
 
 
 # Environments
-.env
+#.env
 .venv
 env/
 venv/
