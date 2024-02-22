@@ -40,8 +40,10 @@ def get_vector_store(text_chunks):
 def get_conversational_chain():
 
     prompt_template = """
-    Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
-    provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
+    Act as AI-PDF expert. Users upload one or more PDF files and ask you questions based on those uploaded files.
+    Your job is to understand the question and generate as detailed as possible answers based on the context of PDF. 
+    Identify one or more paragraphs that contain relevant information and combine them to provide a long and detailed answer.
+    If the answer is not in provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
     Context:\n {context}?\n
     Question: \n{question}\n
 
@@ -59,21 +61,23 @@ def get_conversational_chain():
 
 
 def user_input(user_question):
+    # Append "explain in detail" to the user's question
+    detailed_question = user_question + " Explain in detail."
+    
     embeddings = GoogleGenerativeAIEmbeddings(model = "models/embedding-001")
     
     new_db = FAISS.load_local("faiss_index", embeddings)
-    docs = new_db.similarity_search(user_question)
+    docs = new_db.similarity_search(detailed_question)
 
     chain = get_conversational_chain()
 
     
     response = chain(
-        {"input_documents":docs, "question": user_question}
+        {"input_documents":docs, "question": detailed_question}
         , return_only_outputs=True)
 
     print(response)
     st.write("Reply: ", response["output_text"])
-
 
 
 
