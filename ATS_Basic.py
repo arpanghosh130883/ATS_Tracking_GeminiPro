@@ -42,6 +42,10 @@ I want the response in one single string having the structure
 #tech field,software engineering,data engineering, Python developer,data science ,data analyst
 #and big data engineer.
 
+# with a deep understanding of all fields of the domain like Sales, HR, technology like Java, .Net, Data Engineering, Data Science, Big Data Engineering,
+#AWS Cloud Computing and marketing of fintech company of foreign exchange like Currencies Direct.
+
+
 ## streamlit app
 st.title("Smart ATS")
 st.text("Improve Your Resume ATS")
