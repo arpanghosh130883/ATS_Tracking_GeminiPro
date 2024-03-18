@@ -1,5 +1,7 @@
 from dotenv import load_dotenv
 
+#from ATS import get_gemini_response
+
 load_dotenv()
 #import base64
 import streamlit as st
@@ -16,24 +18,29 @@ def get_gemini_repsonse(input):
     return response.text
 
 def input_pdf_text(uploaded_file):
-    reader=pdf.PdfReader(uploaded_file)
-    text=""
-    for page in range(len(reader.pages)):
-        page=reader.pages[page]
-        text+=str(page.extract_text())
+    reader = pdf.PdfReader(uploaded_file)
+    text = ""
+    for page in reader.pages:
+        text += page.extract_text() or ""
     return text
 
-## Streamlit App
+def analyze_resume(input_prompt):
+    if uploaded_resume is not None:
+        resume_text = input_pdf_text(uploaded_resume)
+        response = get_gemini_repsonse(input_prompt)
+        st.subheader(response)
+    else:
+        st.write("Please upload the resume")
 
+## Streamlit App
+        
 st.set_page_config(page_title="ATS Resume Expert")
 st.header("ATS Tracking System")
 input_text=st.text_area("Job Description: ",key="input")
-uploaded_file=st.file_uploader("Upload your resume(PDF)",type=["pdf"],help="Please uplaod the pdf")
+uploaded_resume = st.file_uploader("Upload your resume (PDF)", type=["pdf"], help="Please upload the resume in PDF format")
 
-
-if uploaded_file is not None:
-    st.write("PDF Uploaded Successfully")
-
+if uploaded_resume is not None:
+    st.success("Resume Uploaded Successfully")
 
 submit1 = st.button("Tell Me About the Resume for Data Engineering Role")
 
@@ -125,43 +132,15 @@ input_prompt6 = """
 """
 
 
-
 if submit1:
-    if uploaded_file is not None:
-        text=input_pdf_text(uploaded_file)
-        response=get_gemini_repsonse(input_prompt1)
-        st.subheader(response)
-    else:
-        st.write("Please uplaod the resume")
-
+    analyze_resume(input_prompt1)
 elif submit2:
-    if uploaded_file is not None:
-        text=input_pdf_text(uploaded_file)
-        response=get_gemini_repsonse(input_prompt2)
-        st.subheader(response)
-
+    analyze_resume(input_prompt2)
 elif submit3:
-    if uploaded_file is not None:
-        text=input_pdf_text(uploaded_file)
-        response=get_gemini_repsonse(input_prompt3)
-        st.subheader(response)
-
+    analyze_resume(input_prompt3)
 elif submit4:
-    if uploaded_file is not None:
-        text=input_pdf_text(uploaded_file)
-        response=get_gemini_repsonse(input_prompt4)
-        st.subheader(response)
-
+    analyze_resume(input_prompt4)
 elif submit5:
-    if uploaded_file is not None:
-        text=input_pdf_text(uploaded_file)
-        response=get_gemini_repsonse(input_prompt5)
-        st.subheader(response)
-        
+    analyze_resume(input_prompt5)
 elif submit6:
-    if uploaded_file is not None:
-        text=input_pdf_text(uploaded_file)
-        response=get_gemini_repsonse(input_prompt6)
-        st.subheader(response)
-    else:
-        st.write("Please uplaod the resume")
+    analyze_resume(input_prompt6)
