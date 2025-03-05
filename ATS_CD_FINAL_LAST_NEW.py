@@ -1,11 +1,14 @@
 from dotenv import load_dotenv
 
-load_dotenv()
+
 import streamlit as st
 import google.generativeai as genai
 import PyPDF2 as pdf
 import re
 from sklearn.feature_extraction.text import CountVectorizer
+
+load_dotenv()
+genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Define the prompt template
 prompt_template = """
