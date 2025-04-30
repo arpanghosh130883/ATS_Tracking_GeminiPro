@@ -14,6 +14,10 @@ from dotenv import load_dotenv
 load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+
+genai.configure(api_key="XXXXX")  ### Configuring the API key for the streamlit app to work in streamlit cloud after deployment
+
+
 # Directory to store uploaded PDFs
 PDF_DIR = "uploaded_pdfs"
 os.makedirs(PDF_DIR, exist_ok=True)
