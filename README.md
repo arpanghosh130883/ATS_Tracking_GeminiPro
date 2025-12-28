@@ -1,5 +1,7 @@
 ATS Application using OpenAI
 AI-Powered Applicant Tracking System (ATS)
+
+
 📌 Project Overview
 
 This project implements an AI-driven Applicant Tracking System (ATS) that leverages OpenAI LLMs to automate resume screening, candidate scoring, and job-fit analysis. The system evaluates resumes against job descriptions and produces structured, explainable hiring insights.
@@ -81,6 +83,9 @@ Red flags
 Final hire recommendation
 
 Output returned in JSON + human-readable format
+
+
+
 
 
 
