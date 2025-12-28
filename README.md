@@ -1,3 +1,91 @@
+ATS Application using OpenAI
+AI-Powered Applicant Tracking System (ATS)
+📌 Project Overview
+
+This project implements an AI-driven Applicant Tracking System (ATS) that leverages OpenAI LLMs to automate resume screening, candidate scoring, and job-fit analysis. The system evaluates resumes against job descriptions and produces structured, explainable hiring insights.
+
+The goal is to reduce recruiter effort, improve shortlisting accuracy, and ensure bias-aware, consistent screening.
+
+🎯 Key Features
+
+Resume parsing (PDF/DOCX)
+
+Job Description understanding
+
+AI-based candidate scoring
+
+Skills gap analysis
+
+Experience relevance scoring
+
+ATS-friendly feedback generation
+
+Explainable AI outputs for recruiters
+
+🧠 Architecture
+Resume (PDF/DOCX)
+        ↓
+Text Extraction (PDF Parser)
+        ↓
+Prompt Engineering
+        ↓
+OpenAI LLM
+        ↓
+Structured Evaluation (JSON)
+        ↓
+UI / API Output
+
+🛠️ Tech Stack
+
+Python
+
+OpenAI GPT-4 / GPT-4o
+
+LangChain
+
+FastAPI / Streamlit
+
+PyPDF / pdfplumber
+
+Pydantic
+
+Docker (optional)
+
+📂 Project Structure
+ats-openai/
+├── app.py
+├── prompts/
+│   ├── resume_eval.txt
+│   └── skill_gap.txt
+├── parsers/
+│   └── resume_parser.py
+├── services/
+│   └── ats_engine.py
+├── requirements.txt
+└── README.md
+
+⚙️ How It Works
+
+Upload resume + JD
+
+Resume is parsed into structured text
+
+LLM evaluates:
+
+Skill match %
+
+Experience relevance
+
+Red flags
+
+Final hire recommendation
+
+Output returned in JSON + human-readable format
+
+
+
+
+
 **ATS Resume Expert**
 
 **Overview**
