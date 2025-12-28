@@ -6,31 +6,36 @@
 This project implements an AI-driven Applicant Tracking System (ATS) using OpenAI Large Language Models.
 The system evaluates resumes against job descriptions to provide structured candidate fit analysis, enabling recruiters to make faster, data-driven shortlisting decisions.
 
+
 🎯 Objectives
 
-Automate resume screening
+- Automate resume screening
 
-Improve hiring accuracy and consistency
+- Improve hiring accuracy and consistency
 
-Reduce recruiter manual effort
+- Reduce recruiter manual effort
 
-Provide explainable hiring insights
+- Provide explainable hiring insights
 
 ✨ Key Features
 
-Resume parsing (PDF/DOCX)
+- Resume parsing (PDF/DOCX)
 
-Job description understanding
+- Job description understanding
 
-AI-based skill & experience matching
+- AI-based skill & experience matching
 
-Candidate scoring and ranking
+- Candidate scoring and ranking
 
-Skill gap analysis
+- Skill gap analysis
 
-ATS-friendly structured outputs
+- ATS-friendly structured outputs
+
+
 
 🧠 High-Level Architecture
+
+
 Resume + Job Description
         ↓
 Text Extraction
@@ -43,17 +48,22 @@ Structured Evaluation (JSON)
         ↓
 UI / API Output
 
+
+
 🛠 Tech Stack
 
-Python
+- Python
 
-OpenAI GPT-4 / GPT-4o
+- OpenAI GPT-4 / GPT-4o
 
-LangChain
+- LangChain
 
-FastAPI / Streamlit
+- FastAPI / Streamlit
 
-PyPDF / pdfplumber
+- PyPDF / pdfplumber
+
+
+
 
 📂 Folder Structure
 ats-openai/
@@ -64,6 +74,8 @@ ats-openai/
 ├── requirements.txt
 └── README.md
 
+
+
 🧪 Sample Output
 {
   "overall_fit": "Strong",
@@ -73,12 +85,14 @@ ats-openai/
   "recommendation": "Shortlist"
 }
 
+
+
 🚀 Use Cases
 
-Campus hiring
+- Campus hiring
 
-Lateral recruitment
+- Lateral recruitment
 
-Consulting staffing
+- Consulting staffing
 
-Internal mobility
+ - Internal mobility
